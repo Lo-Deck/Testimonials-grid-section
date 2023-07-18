@@ -1,0 +1,177 @@
+
+:root{
+    --gutter: clamp(1.13rem, calc(-1.33rem + 4.62vw), 1.88rem);
+    --desktop_padding_1rem: clamp(0.75rem, calc(0.39rem + 0.68vw), 1.00rem);
+    --desktop_padding_2rem: clamp(1.38rem, calc(0.47rem + 1.69vw), 2.00rem);
+    --desktop_svg_position: clamp(12.50rem, calc(-2.63rem + 28.47vw), 23.00rem);
+    --desktop_svg_size: clamp(5.88rem, calc(3.53rem + 4.41vw), 7.50rem);
+}
+
+
+/*PRINCIPAL*/
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: hsl(0, 0%, 81%);
+    font-size: 0.8125rem;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-weight: 500;
+    color: hsl(210, 46%, 95%);
+}
+
+main{
+    max-width: 21rem;
+}
+
+.sr-only{
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    position: absolute;
+}
+
+
+/*SECTION*/
+
+.person{
+    padding: 1rem 2rem 1rem;
+    margin-bottom: 1rem;
+    border-radius: 0.6rem;
+}
+
+.clifford{
+    background-image: url(./images/bg-pattern-quotation.svg);
+    background-repeat: no-repeat;
+    background-position: 13rem 0;
+    background-color: hsl(263, 55%, 52%);
+}
+
+.walters{
+    background-color: hsl(217, 19%, 35%);
+}
+
+.harmon, .whittle{
+    background-color: hsl(0, 0%, 100%);
+    color: hsl(219, 29%, 14%);   
+}
+
+.abrams{
+    background-color: hsl(219, 29%, 14%);
+}
+
+
+/*SECTION-TITLE*/
+
+.section-title::before{
+    display: inline-block;
+    content: "";
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-image: url(./images/image-daniel.jpg);
+    background-size: contain;
+    margin-right: 1rem;
+    vertical-align:text-top;
+    outline: 0.15rem solid hsla(210, 46%, 95%, 50%);
+}
+
+.walters .section-title::before{
+    background-image: url(./images/image-jonathan.jpg);
+}
+
+.harmon .section-title::before{
+    background-image: url(./images/image-jeanette.jpg);
+}
+
+.abrams .section-title::before{
+    background-image: url(./images/image-patrick.jpg);
+    outline: 0.15rem solid hsl(263, 55%, 52%);
+}
+
+.whittle .section-title::before{
+    background-image: url(./images/image-kira.jpg);
+}
+
+.section-title{
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.section-title span{
+    display: block;
+    opacity: 50%;
+    margin: -0.8rem 0 0 3rem;
+}
+
+
+/*SECTION-TEXT*/
+
+.text-bold{
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.harmon .text-bold, .whittle .text-bold{
+    opacity: 70%;
+}
+
+.text{
+    opacity: 70%;
+}
+
+
+@media screen and (min-width: 854px){
+
+    main{
+        max-width: 69.38rem;
+    }
+
+    .container{
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        gap: var(--gutter);
+    }
+
+    .person{
+        padding: var(--desktop_padding_1rem) var(--desktop_padding_2rem) var(--desktop_padding_1rem);
+        margin-bottom: 0;
+    }
+
+    .clifford{
+        grid-column: 1 / 7;
+        grid-row: 1 / 3;
+        background-position: var(--desktop_svg_position) 0;
+        background-size: var(--desktop_svg_size);
+    }
+    
+    .walters{
+        grid-column: 7 / 10;
+        grid-row: 1 / 3;
+    }
+    
+    .harmon{
+        grid-column: 1 / 4;
+        grid-row: 3 / 5; 
+    }
+    
+    .abrams{
+        grid-column: 4 / 10;
+        grid-row: 3 / 5;
+    }
+
+    .whittle{
+        grid-column:  10 / 13;
+        grid-row: 1 / -1;
+    }
+  
+}
